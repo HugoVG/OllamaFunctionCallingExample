@@ -1,0 +1,24 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <OutputType>Exe</OutputType>
+        <TargetFramework>net8.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+        <InvariantGlobalization>true</InvariantGlobalization>
+    </PropertyGroup>
+    
+    <ItemGroup Label="Manditory">
+        <PackageReference Include="Microsoft.SemanticKernel.Connectors.OpenAI" Version="1.26.0" />
+        <PackageReference Include="Microsoft.SemanticKernel.Core" Version="1.26.0" />
+    </ItemGroup>
+
+    <ItemGroup Label="Optional">
+      <!--We use Bogus for random data-->
+      <PackageReference Include="Bogus" Version="35.6.1" />
+      <!--For setting up the Generic Host-->
+      <PackageReference Include="Microsoft.Extensions.Hosting" Version="8.0.1" />
+      <PackageReference Include="Microsoft.Extensions.Logging" Version="8.0.1" />
+      <PackageReference Include="Microsoft.Extensions.Logging.Console" Version="8.0.1" />
+    </ItemGroup>
+</Project>
