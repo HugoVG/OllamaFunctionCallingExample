@@ -18,12 +18,12 @@ public class MockDatabase(ILogger<MockDatabase> logger) : IDatabase
         return true;
     }
 
-    public IEnumerable<DbStatement> GetStatementsToProcess()
+    public IEnumerable<DbStatement> GetStatementsToProcess(string product = "product")
     {
         while (true) yield return new DbStatement()
         {
             Id = Guid.NewGuid(),
-            Statement = new Rant().Review()
+            Statement = new Rant().Review(product)
         };
     }
     
@@ -36,7 +36,7 @@ public class MockDatabase(ILogger<MockDatabase> logger) : IDatabase
 public interface IDatabase 
 {
     bool AddSentiment(ProcessedSentiment statement);
-    IEnumerable<DbStatement> GetStatementsToProcess();
+    IEnumerable<DbStatement> GetStatementsToProcess(string product = "product");
     List<ProcessedSentiment> GetSentiments();
 }
 

@@ -12,6 +12,7 @@ public static class OllamaService
     public static IServiceCollection AddOllamaService(this IServiceCollection services)
     {
         services.AddKernel().Plugins.AddFromType<SentimentPlugin>();
+        services.AddKernel().Plugins.AddFromType<FeedbackPlugin>();
         services.AddOpenAIChatCompletion("llama3.2:3b", 
             new Uri("http://localhost:11434/v1")); // ADD /v1 to the end of the URL to for the OpenAI Connector.
         
